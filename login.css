@@ -1,0 +1,162 @@
+:root {
+    --bg: linear-gradient(135deg, #0d47a1, #42a5f5);
+    --card: #ffffff;
+    --text: #0d47a1;
+    --sub: #666;
+    --input: #ccc;
+    --button: linear-gradient(135deg, #1976d2, #0d47a1);
+}
+
+body.dark {
+    --bg: linear-gradient(135deg, #121212, #1f1f1f);
+    --card: #1e1e1e;
+    --text: #90caf9;
+    --sub: #aaa;
+    --input: #444;
+    --button: linear-gradient(135deg, #333, #000);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--card);
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.login-card {
+    background: var(--card);
+    width: 100%;
+    max-width: 380px;
+    padding: 35px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    animation: fadeIn 0.8s ease;
+}
+
+.login-card h1 {
+    color: var(--text);
+    margin-bottom: 6px;
+}
+
+.login-card p {
+    color: var(--sub);
+    margin-bottom: 25px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 22px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--input);
+    border-radius: 8px;
+    font-size: 16px;
+    background: transparent;
+    color: var(--text);
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    background: var(--card);
+    padding: 0 6px;
+    color: var(--sub);
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+    top: -8px;
+    font-size: 12px;
+    color: var(--text);
+}
+
+.senha-group .toggle-senha {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background: var(--button);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.loader {
+    display: none;
+    width: 22px;
+    height: 22px;
+    border: 3px solid rgba(255,255,255,0.4);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: auto;
+}
+
+.loading .btn-text {
+    display: none;
+}
+
+.loading .loader {
+    display: block;
+}
+
+#erro {
+    display: block;
+    margin-top: 12px;
+    color: #d32f2f;
+    font-size: 14px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 📱 RESPONSIVO */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 25px;
+    }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>WSM Transportes - Agendamentos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>🚚 WSM TRANSPORTES</h1>
+    <p>Controle Agendamento de Notas Fiscais</p>
+</header>
+
+<main>
+
+<form id="formNF">
+    <input type="number" id="nf" placeholder="Número da Nota Fiscal" required min="1">
+    <input type="number" id="volumes" placeholder="Volumes" required min="1">
+    <input type="text" id="remetente" placeholder="Remetente" required>
+    <input type="text" id="destinatario" placeholder="Destinatário" required>
+    <input type="date" id="dataAgendamento" required>
+
+    <select id="motorista" required>
+        <option value="">Selecione o motorista</option>
+        <option value="Aguardando no galpão">Aguardando no galpão</option>
+        <option value="Antonio Helder">Antonio Helder</option>
+        <option value="Antonio Vieira">Antonio Vieira</option>
+        <option value="Hilberto">Hilberto</option>
+        <option value="Fiderlan">Fiderlan</option>
+        <option value="Gedimar">Gedimar</option>
+        <option value="Kenderson">Kenderson</option>
+        <option value="Sidinei">Sidinei</option>
+        <option value="Welder">Welder</option>
+    </select>
+
+    <button type="submit">Confirmar Agendamento</button>
+</form>
+
+<div class="filtro">
+    <label>Filtrar por status:</label>
+    <select id="filtroStatus" onchange="filtrarStatus()">
+        <option value="Todos">Todos</option>
+        <option value="Agendada">Agendada</option>
+        <option value="Em Transporte">Em Transporte</option>
+        <option value="Entregue">Entregue</option>
+    </select>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>NF</th>
+            <th>Volumes</th>
+            <th>Remetente</th>
+            <th>Destinatário</th>
+            <th>Data</th>
+            <th>Motorista</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody id="listaNF"></tbody>
+</table>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
